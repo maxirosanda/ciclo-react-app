@@ -1,6 +1,6 @@
 import './index.css'
 
-const NotFoundPage = () => {
+const Component = () => {
     return(
         <>
         <h1>NotFoundPage</h1>
@@ -8,4 +8,4 @@ const NotFoundPage = () => {
     )
 }
 
-export default NotFoundPage
+export default Component

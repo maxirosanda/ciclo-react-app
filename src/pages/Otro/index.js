@@ -1,8 +1,7 @@
 import './index.css'
-import { useParams } from "react-router-dom";
 
-const Otro = () => {
-    const {id} = useParams();
+const Component = ({id}) => {
+    
     return(
         <>
         <h1>Otro {id}</h1>
@@ -10,4 +9,4 @@ const Otro = () => {
     )
 }
 
-export default Otro
+export default Component

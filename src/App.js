@@ -1,20 +1,19 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import './App.css'
-import Counter from './pages/Counter'
-import Otro from './pages/Otro'
-import Navegador from './components/Navegador'
-import NotFoundPage from './pages/NotFoundPage'
+import {BrowserRouter,Routes,Route , Navigate} from 'react-router-dom'
+import CounterController from './pages/Counter/index.controller'
+import OtroController from './pages/Otro/index.controller'
+import NotFoundPageController from './pages/NotFoundPage/index.controller'
+import NavegadorController from './components/Navegador/index.controller'
 
 function App() {
-
-
   return (
     <BrowserRouter> 
-      <Navegador/>
+      <NavegadorController/>
       <Routes>
-        <Route path='/' element={<Counter/>}></Route>
-        <Route path='/otro/:id' element={<Otro/>}></Route>
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path='/' element={<CounterController/>}></Route>
+        <Route path='/otro/:id' element={<OtroController/>}></Route>
+        <Route path='/otro2' element={<Navigate to="/otro/12"/>} ></Route>
+        <Route path="*" element={<NotFoundPageController />} />
+    
       </Routes>
     
     </BrowserRouter>
