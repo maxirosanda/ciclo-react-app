@@ -1,21 +1,24 @@
-import { useEffect, useState } from 'react'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './App.css'
+import Counter from './pages/Counter'
+import Otro from './pages/Otro'
+import Navegador from './components/Navegador'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
-  let[count,setCount] = useState(0)
-  useEffect(()=>{
-    console.log("montado de componente")
-    return(console.log("desmontado de componente"))
-  },[])
-  useEffect(()=>{
-    console.log("actualizacion de componente")
-  },[count])
+
+
   return (
-    <div className="App">
-      <h1>Hola</h1>
-      <span>{count}</span>
-      <button onClick={()=>setCount(count++)}>Click</button>
-    </div>
+    <BrowserRouter> 
+      <Navegador/>
+      <Routes>
+        <Route path='/' element={<Counter/>}></Route>
+        <Route path='/otro/:id' element={<Otro/>}></Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    
+    </BrowserRouter>
+
   )
 }
 
